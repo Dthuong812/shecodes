@@ -7,7 +7,7 @@ const HomePage = () => {
     return (
         <div className='flex flex-col'>
            <Search></Search>
-           <div className="flex  fle">
+           <div className="flex flex-row">
            <HomeHeader></HomeHeader>
            <Content></Content>
            </div>
