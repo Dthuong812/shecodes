@@ -11,8 +11,7 @@ const NewPage = lazy(() => import("./pages/NewPage"));
 const NotiPage = lazy(() => import("./pages/NotiPage"));
 const PersonPage = lazy(() => import("./pages/PersonPage"));
 const SettingPage = lazy(() => import("./pages/SettingPage"));
-const SugarBlood = lazy(() => import("./pages/SugarPage"));
-
+const SugarPage = lazy(() => import("./pages/SugarPage"));
 
 
 function App() {
@@ -28,7 +27,7 @@ function App() {
       <Route path="/noti" element={<NotiPage></NotiPage>}></Route>
       <Route path="/person" element={<PersonPage></PersonPage>}></Route>
       <Route path="/setting" element={<SettingPage></SettingPage>}></Route>
-      <Route path="/sugar" element={<SugarBlood></SugarBlood>}></Route>
+      <Route path="/sugar" element={<SugarPage></SugarPage>}></Route>
 
     </Routes>
   </Suspense>
