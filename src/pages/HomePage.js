@@ -4,7 +4,7 @@ import HomeHeader from '../modules/home/HomeHeader';
 
 const HomePage = () => {
     return (
-        <div className='flex'>
+        <div className='flex flex-col'>
            <Search></Search>
            <HomeHeader></HomeHeader>
         </div>
