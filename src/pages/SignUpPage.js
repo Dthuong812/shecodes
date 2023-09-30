@@ -85,15 +85,15 @@ const SignUpPage = () => {
                     </Input>
                 </FormField>
                 <div className="flex items-start mb-3 gap-x-2 lg:gap-x-3 lg:mx-11">
-                    <CheckBox name="term" checked={acceptTerm} onClick={handleToggleTerm}>
-                    <p className="text-sm text-[9px] lg:text-base font-medium text-text3 flex-1">I’ve read and accepted <span className='text-primary'>Terms of Service</span> and <span className="text-primary"> Privacy Policy</span></p>
+                <CheckBox name="term" checked={acceptTerm} onClick={handleToggleTerm}>
+                    <p className="text-sm text-[9px] lg:text-base font-medium text-text3 flex-1">Tôi đã đọc và đồng ý <span className='text-primary'>Điều khoản</span> và <span className="text-primary">Chính sách bảo mật</span></p>
                     </CheckBox>
                 </div>
                 <Button className='w-[355px] bg-primary ' type="submit">
-                    Sign Up
+                    Đăng kí
                 </Button>
            </form>
-           <p className='mt-3 text-center text-text3 '>Already have an account?<Link to="/sign-in" className='text-primary'>Sign In</Link></p>
+           <p className='mt-3 text-center text-text3 '>Bạn đã có tài khoản?<Link to="/sign-in" className='text-primary'>Đăng nhập</Link></p>
         </LayoutAuthentication>
     );
 };
