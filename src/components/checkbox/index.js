@@ -1,3 +1,4 @@
 import CheckBox from "./CheckBox"
+import HomeCheck from "./HomeCheck"
 
-export {CheckBox}
+export {CheckBox, HomeCheck}
