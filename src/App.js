@@ -28,6 +28,7 @@ function App() {
       <Route path="/person" element={<PersonPage></PersonPage>}></Route>
       <Route path="/setting" element={<SettingPage></SettingPage>}></Route>
       <Route path="/sugar" element={<SugarPage></SugarPage>}></Route>
+
     </Routes>
   </Suspense>
   ) 

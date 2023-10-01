@@ -1,7 +1,7 @@
 import React from 'react';
 import Search from '../modules/home/Search';
 import HomeHeader from '../modules/home/HomeHeader';
-
+import Data from '../modules/sugar/Data'
 
 
 const SugarPage = () => {
@@ -9,7 +9,8 @@ const SugarPage = () => {
         <div className='flex flex-col'>
            <Search></Search>
            <div className="flex flex-row">
-           <HomeHeader></HomeHeader>
+           <HomeHeader/>
+           <Data/>
         </div>
         </div>
 
