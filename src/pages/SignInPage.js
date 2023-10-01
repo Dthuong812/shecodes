@@ -11,6 +11,13 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import IconEyes from '../components/icons/IconEyes';
 
+import {auth} from '../firebase/firebase-config'
+import {signInWithEmailAndPassword} from "firebase/auth"
+import { useNavigate } from "react-router-dom";
+
+
+
+
 const schema = yup.object({
     name: yup.string().required("This field is required"),
     email: yup
@@ -23,20 +30,42 @@ const schema = yup.object({
       .min(8, "Password must be 8 character "),
   });
 
-const SignUpPage = () => {
+  
+
+const SignInPage = () => {
     const {
         handleSubmit,
         control,
         reset,
+        
         formState: { errors },
+        values,
+        register
       } = useForm({
-        resolver: yupResolver(schema),
+        // resolver: yupResolver(schema),
         mode: "onSubmit",
       });
  
-  const handleSignUp =  (values) => {
+      const navigate = useNavigate();
 
-  };
+    
+    const [SignInEmail , setSignInEmail] = useState("")
+    const [SignInPassword , setSignInPassword] = useState("")
+    const [IsSignedIn, setIsSignedIn] = useState(false)
+
+    const signIn = ({email, password}) => {
+        // console.log(SignInEmail, SignInPassword)
+        signInWithEmailAndPassword(auth, email, password)
+          .then((userCredential) => {
+            localStorage.setItem('isLoggedIn', true);
+            navigate('/')
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+        //   console.log(SignInEmail,SignInPassword)
+      };
+    
     const [acceptTerm , setAcceptTerm] = useState(false)
     const [showPassword , setShowPassword] = useState(false)
     const handleToggleTerm =()=>{
@@ -45,27 +74,22 @@ const SignUpPage = () => {
    const handleTogglePassword =()=>{
      setShowPassword(!showPassword)
    }
+
+   const test = (data) => {
+    console.log(data)
+   }
     return (
-        <LayoutAuthentication heading="Đăng kí">
-           <form onSubmit ={handleSubmit(handleSignUp)}>
-                <FormField>
-                    <Label>Họ và tên*</Label>
-                    <Input 
-                        control ={control} 
-                        name="name" 
-                        placeholder="Tran Van A"
-                        error={errors.name?.message}
-                        >
-                    </Input>
-                </FormField>
+        <LayoutAuthentication heading="Đăng nhập">
+                <>
+                <form onSubmit={handleSubmit(signIn)}>
+                
                 <FormField>
                     <Label>Email*</Label>
                     <Input 
                         control ={control} 
-                        name="email" 
-                        type="email" 
-                        placeholder="example: shecodes@gmail.com"
-                        error={errors.email?.message}
+                        
+                        {...register('email')}
+                        
                         >
                     </Input>
                 </FormField>
@@ -73,29 +97,28 @@ const SignUpPage = () => {
                     <Label>Password*</Label>
                     <Input 
                         control={control}
-                        name="password"
-                        type ={`${showPassword ? "text" : "password"}`}
-                        placeholder="Tạo mật khẩu"
-                        error={errors.password?.message}
-                        >
+                         {...register('password')}
+>
                         <IconEyes
                             open={showPassword}
                             onClick={handleTogglePassword}
                             ></IconEyes>
                     </Input>
                 </FormField>
-                <div className="flex items-start mb-3 gap-x-2 lg:gap-x-3 lg:mx-11">
-                    <CheckBox name="term" checked={acceptTerm} onClick={handleToggleTerm}>
-                    <p className="text-sm text-[9px] lg:text-base font-medium text-text3 flex-1">Tôi đã đọc và đồng ý <span className='text-primary'>Điều khoản</span> và <span className="text-primary">Chính sách bảo mật</span></p>
-                    </CheckBox>
-                </div>
-                <Button className='w-[355px] bg-primary ' type="submit">
-                    Đăng kí
+               
+                <Button className='w-[355px] bg-primary ' 
+                type='submit'>
+                    Sign In
                 </Button>
+               
            </form>
-           <p className='mt-3 text-center text-text3 '>Bạn đã có tài khoản?<Link to="/sign-in" className='text-primary'> Đăng nhập</Link></p>
+           </>
+            
+           
+           <p className='mt-3 text-center text-text3 '>Bạn đã chưa có tài khoản?<Link to="/sign-up" className='text-primary'> Đăng kí</Link></p>
         </LayoutAuthentication>
+    
     );
 };
 
-export default SignUpPage;
+export default SignInPage;

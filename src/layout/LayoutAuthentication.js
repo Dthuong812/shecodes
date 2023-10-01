@@ -7,9 +7,9 @@ import ErrorComponents from '../components/common/ErrorComponents';
 const LayoutAuthentication = (props) => {
     const {children, heading} = props;
     return (
-        <div className='w-full min-h-screen p-10 bg-[#A4CDE3] '>
+        <div className='w-full min-h-screen p-10 bg-[#A4CDE3] bg-gradient-to-r from-[#dbaaa6] via-[#c8c8fa] to-[#c8c8fa] '>
             <Link to= "/" className='inline-block mb-5 lg:mb-16'>
-                <h1 className='text-2xl font-bold'>GLUCLOSE</h1>
+                <h1 className='text-2xl font-bold'>GLU-CLOSE</h1>
             </Link>
             <div className='w-full max-w-[482px] rounded-xl px-5 py-8 lg:px-16px lg:py-12 mx-auto bg-g_white'>
                 <h1 className='mb-3 text-2xl font-bold text-center lg:text-4xl text-text1'>{heading}</h1>

@@ -1,18 +1,18 @@
 import React from 'react';
 import Search from '../modules/home/Search';
 import HomeHeader from '../modules/home/HomeHeader';
-import User from '../modules/user/User';
+import IntroAbout from '../modules/about/IntroAbout';
 
-const PersonPage = () => {
+const AboutUs = () => {
     return (
         <div className='flex flex-col bg-gradient-to-r from-[#dbaaa6] via-[#c8c8fa] to-[#c8c8fa]'>
            <Search></Search>
            <div className="flex flex-row">
            <HomeHeader></HomeHeader>
-            <User></User>
+           <IntroAbout></IntroAbout>
            </div>
         </div>
     );
 };
 
-export default PersonPage;
+export default AboutUs;

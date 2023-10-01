@@ -4,7 +4,7 @@ const Search = () => {
     return (
         <div className='flex items-center w-full '>
             <div className='mb-3 mr-8 w-[300px]'>
-                <h1 className="items-center pt-8 pl-5 text-2xl font-bold text-center text-text1">GLUCLOSE</h1>
+                <h1 className="items-center pt-8 pl-5 text-2xl font-bold text-center text-text1">GLU-CLOSE</h1>
             </div>
             <input type="text" className=" w-[800px] h-6 py-5 mt-5 border rounded-lg w-70 border-primary px-5 mr-5" />
             <div className="mt-4">
