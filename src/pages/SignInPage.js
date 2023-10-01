@@ -46,18 +46,8 @@ const SignUpPage = () => {
      setShowPassword(!showPassword)
    }
     return (
-        <LayoutAuthentication heading="Đăng kí">
+        <LayoutAuthentication heading="Đăng nhập">
            <form onSubmit ={handleSubmit(handleSignUp)}>
-                <FormField>
-                    <Label>Họ và tên*</Label>
-                    <Input 
-                        control ={control} 
-                        name="name" 
-                        placeholder="Tran Van A"
-                        error={errors.name?.message}
-                        >
-                    </Input>
-                </FormField>
                 <FormField>
                     <Label>Email*</Label>
                     <Input 
@@ -85,15 +75,11 @@ const SignUpPage = () => {
                     </Input>
                 </FormField>
                 <div className="flex items-start mb-3 gap-x-2 lg:gap-x-3 lg:mx-11">
-                    <CheckBox name="term" checked={acceptTerm} onClick={handleToggleTerm}>
-                    <p className="text-sm text-[9px] lg:text-base font-medium text-text3 flex-1">Tôi đã đọc và đồng ý <span className='text-primary'>Điều khoản</span> và <span className="text-primary">Chính sách bảo mật</span></p>
-                    </CheckBox>
                 </div>
                 <Button className='w-[355px] bg-primary ' type="submit">
                     Đăng kí
                 </Button>
            </form>
-           <p className='mt-3 text-center text-text3 '>Bạn đã có tài khoản?<Link to="/sign-in" className='text-primary'> Đăng nhập</Link></p>
         </LayoutAuthentication>
     );
 };
